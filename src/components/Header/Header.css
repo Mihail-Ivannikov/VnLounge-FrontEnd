@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.upper-header {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  padding-left: 250px;
+  padding-right: 250px;
+
+  /* Split background with two colors */
+  background: linear-gradient(to right, #eacdcf 35%, #fae5e6 35%);
+  overflow: hidden;
+}
+
+/* Triangle at the bottom end of the dark section */
+.upper-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Align with the bottom of the header */
+  left: 35%; /* Position at the end of the darker part */
+  width: 0;
+  height: 0;
+  padding-left: 250px;
+  padding-right: 250px;
+
+  border-right: 0 solid transparent; /* No left border */
+  border-bottom: 100px solid transparent; /* Vertical transparent side */
+  border-left: 60px solid #eacdcf; /* Horizontal side matching dark color */
+}
+
+#upper-menu {
+  right: 0;
+}
+
+#upper-menu .menu-item {
+  color: #2b313d;
+}
+
+#lower-menu .menu-item {
+  color: #fae5e6;
+  border-right: solid #fae5e6 1pt;
+  padding-right: 30px;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+}
+
+.auth-button {
+  color: #fae5e6;
+  font-family: 'Sedgwick Ave', cursive;
+  background-color: #b87481;
+  padding: 5px 30px;
+}
+
+.auth-button:hover {
+  background-color: #543d4f;
+  color: #fae5e6;
+}
+
+.register-button {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.login-button {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-left: 2px;
+}
+
+.lower-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  padding-left: 250px;
+  padding-right: 250px;
+  color: #fae5e6;
+
+  /* Split background with two colors */
+  background: linear-gradient(to right, #543d4f 33%, #80687b 33%);
+  overflow: hidden;
+}
+
+/* Triangle at the bottom end of the dark section */
+.lower-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Align with the bottom of the header */
+  left: 33%; /* Position at the end of the darker part */
+  width: 0;
+  height: 0;
+  padding-left: 250px;
+  padding-right: 250px;
+
+  border-right: 0 solid transparent; /* No left border */
+  border-bottom: 100px solid transparent; /* Vertical transparent side */
+  border-left: 4vw solid #543d4f; /* Horizontal side matching dark color */
+}
+
+@media (max-width: 1500px) {
+  .upper-header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .lower-header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}

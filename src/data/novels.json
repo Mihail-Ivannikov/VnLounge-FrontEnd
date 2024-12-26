@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Clannad",
+    "imagePath": "/src/assets/images/TopRated/Clannad.jpg",
+    "date": "2024-12-20",
+    "description": "Clannad takes you on a journey through the daily life of Tomoya Okazaki, a high school delinquent who hides from his troubled past. His encounter with Nagisa Furukawa, a clumsy girl struggling to continue school after illness, sparks a connection that leads Tomoya to slowly rediscover the joy in life. As he befriends various characters, each with their own stories, the narrative weaves between heartfelt moments and quirky, comedic scenes. Yet, lurking beneath the surface is a mysterious and fantastical story about a doll and a girl trapped in a world where nothing ever changes. The paths you choose will lead to different resolutions, some grounded in reality, others touched by the supernatural. As you become more involved with the characters, the drama deepens—culminating in an emotional journey with After Story, an unforgettable conclusion that will stay with you. Will you uncover the secrets of the hidden story, or will you focus on the emotional bonds Tomoya forms with those around him? One thing’s for sure: Clannad offers an experience that will both challenge and tug at your heartstrings. Are you ready to uncover its mysteries?",
+    "rating": 9.5,
+    "genre": "Slice of life",
+    "type": "Visual Novel",
+    "duration": "10-20 hours",
+    "author": "key",
+    "downloadLink": "/downloads/novel1.zip"
+  },
+  {
+    "title": "Another Novel",
+    "imagePath": "/images/novel2.jpg",
+    "date": "2023-10-15",
+    "description": "Another fantastic visual novel to enjoy.",
+    "rating": 4.2,
+    "genre": "Mystery",
+    "type": "Visual Novel",
+    "duration": "8 hours",
+    "author": "Jane Doe",
+    "downloadLink": "/downloads/novel2.zip"
+  }
+]

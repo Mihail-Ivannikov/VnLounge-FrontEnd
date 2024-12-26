@@ -1,0 +1,18 @@
+.logo-container {
+  display: flex;
+  width: fit-content;
+  font-family: 'Sedgwick Ave', cursive;
+  align-items: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.logo-image {
+  height: 90px;
+  width: 90px;
+}
+
+.logo-text {
+  font-size: 36px;
+  color: #2b313d;
+}

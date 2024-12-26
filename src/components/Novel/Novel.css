@@ -1,0 +1,66 @@
+.novel {
+  margin: 20px auto;
+  padding: 20px;
+  margin-top: 100px;
+  height: fit-content;
+  border: 2px solid #2b313d;
+  border-radius: 10px;
+  background-color: #fcf0f1;
+  color: #2b313d;
+  max-width: 800px;
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.novel-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.novel-image {
+  width: 50%;
+  max-width: 350px;
+  border-radius: 8px;
+}
+
+.novel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.novel-text h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.novel-text p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.novel-description {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.novel-download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.novel-download-button {
+  padding: 10px 20px;
+  background-color: #2b313d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.novel-download-button:hover {
+  background-color: #8f6a7a;
+}

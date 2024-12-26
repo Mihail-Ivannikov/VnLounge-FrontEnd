@@ -1,0 +1,86 @@
+.slider-title {
+  padding: 10px;
+  padding-left: 50px;
+  margin: 20px;
+  font-size: 24px;
+  color: #2b313d;
+  font-family: 'Sedwick Ave', cursive;
+  border-bottom: solid #2b313d 2pt;
+}
+
+.slider {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.slider-viewport {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: scroll; /* Hides the scrollbar */
+  scroll-behavior: smooth;
+}
+
+.slider-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-item {
+  min-width: 200px;
+  width: 200px;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 200px;
+  height: 200px;
+}
+
+.slider-label {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+  color: #2b313d;
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.slider-button {
+  background-color: #2b313ddb;
+  color: white;
+  padding: 20px;
+  position: absolute;
+  height: 100px;
+  top: 20%;
+}
+
+button {
+  background: none; /* Removes background */
+  border: none; /* Removes the border */
+  outline: none; /* Removes the outline (focus outline) */
+  text-decoration: none; /* Removes text decoration (like underlines) */
+  padding: 0; /* Optionally remove padding */
+  cursor: pointer; /* Ensures the button remains clickable */
+  font-size: 36px;
+  border-radius: 10px;
+}
+.next-button {
+  right: 0;
+}
+
+.prev-button {
+  left: 0;
+}

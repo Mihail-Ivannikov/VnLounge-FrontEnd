@@ -1,0 +1,41 @@
+.pagination {
+  padding-top: 25px;
+  margin-top: 25px;
+  border-top: solid #2b313d 2pt;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.catalog-button {
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.catalog-button:hover {
+  background-color: #e0e0e0;
+}
+
+.catalog-button:disabled {
+  background-color: #dcdcdc;
+  cursor: not-allowed;
+}
+
+.catalog-button.active {
+  background-color: #2b313d;
+  color: white;
+  font-weight: bold;
+}
+
+.catalog-button:first-child,
+.catalog-button:last-child {
+  font-weight: bold;
+}
+
+.catalog-button:disabled {
+  opacity: 0.5;
+}

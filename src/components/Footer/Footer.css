@@ -1,0 +1,56 @@
+.footer {
+  background: linear-gradient(135deg, #2b313d, #4b5668);
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.footer-community,
+.footer-social {
+  text-align: left;
+}
+
+.footer-community h4,
+.footer-social h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-community p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #e1b7d7;
+  font-size: 28px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #f7e7ff;
+}

@@ -1,0 +1,22 @@
+.card {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fffafa;
+  width: fit-content;
+  color: #2b313d;
+  font-family: 'Sedwick Ave', cursive;
+  border: dashed #2b313d 1.5pt;
+  text-align: center;
+  max-width: 200px;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.card-image {
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+}

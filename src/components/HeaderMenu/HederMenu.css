@@ -1,0 +1,43 @@
+a {
+  all: unset; /* Resets all default styles */
+  color: inherit; /* Sets the link color to black */
+  cursor: pointer; /* Ensures it still behaves like a link */
+  text-decoration: none; /* Prevents underlining */
+}
+
+.menu {
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Sedgwick Ave', cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 14px;
+  text-wrap: nowrap;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.menu .menu-item {
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none; /* Removes underline */
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+}
+
+.menu-item:visited {
+  color: inherit; /* Ensures visited links have the same color */
+}
+
+.menu-item:hover,
+.menu-item:focus,
+.menu-item:active {
+  color: inherit; /* Prevent color change on hover, focus, and active */
+  text-decoration: none; /* Ensures underline doesn't appear on hover */
+  outline: none; /* Removes focus outline */
+}

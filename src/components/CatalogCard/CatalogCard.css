@@ -1,0 +1,94 @@
+.catalog-card {
+  margin: 16px 0;
+  padding: 20px;
+  border: 1px dashed #2b313d;
+  border-radius: 10px;
+  background-color: #fcf0f1;
+  color: #2b313d;
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.catalog-header {
+  display: flex; /* Flexbox for layout */
+  gap: 20px; /* Space between image and text */
+  align-items: center; /* Vertically center the content */
+}
+
+.catalog-image {
+  width: 50%; /* Image takes up 50% of the parent width */
+  max-width: 350px;
+  max-height: 350px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.catalog-text {
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  gap: 10px; /* Space between text items */
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.catalog-text h4 {
+  margin: 0;
+  font-size: 32px; /* Title uses 28px font size */
+}
+
+.catalog-text p {
+  margin: 0;
+  font-size: 20px; /* Keep the text size smaller for metadata */
+}
+
+.catalog-text strong {
+  color: #543d4f;
+  font-size: 20px; /* Keep strong text the same size as the paragraphs */
+}
+
+.catalog-card p {
+  margin-top: 10px;
+  color: #2b313d;
+  font-size: 20px; /* Set a normal size for description */
+}
+
+.catalog-card strong {
+  color: #543d4f;
+  font-size: 20px; /* Keep strong in description at normal size */
+}
+
+.tags-and-button {
+  border-top: solid #2b313d 2pt;
+  padding: 10px;
+  text-align: center;
+}
+
+.read-button {
+  padding: 10px 20px;
+  background-color: #543d4f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.read-button:hover {
+  background-color: #8f6a7a;
+}
+
+.tags-and-button {
+  display: flex;
+  justify-content: space-between; /* Space between tags and the button */
+  align-items: center; /* Vertically align the tags and button */
+  margin-top: 20px;
+}
+
+.tags {
+  display: flex;
+  gap: 15px; /* Space between the tags */
+}
+
+.tags span {
+  font-size: 18px;
+  color: #2b313d;
+}
