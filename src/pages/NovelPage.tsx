@@ -1,17 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Novel from '../components/Novel/Novel';
-import novelsData from '../data/novels.json'; // Assume JSON data is available
 import Sidebar from '../components/Sidebar/Sidebar';
 import './NovelPage.css';
 
 const NovelPage: React.FC = () => {
-  const { name } = useParams<{ name: string }>(); // Get the novel name from URL params
+  const id = useParams().name; // Get the novel id from URL params
+  const [novel, setNovel] = useState<any>(null); // State to store novel data
+  const [error, setError] = useState<string | null>(null); // State to store error message
+  const [loading, setLoading] = useState<boolean>(true); // State to manage loading state
 
-  // Find the novel data by name
-  const novel = novelsData.find((n) => n.title === name);
+  // Fetch novel data based on the id from the URL
+  useEffect(() => {
+    const fetchNovel = async () => {
+      try {
+        const response = await fetch(`/visual-novels/${id}`); // Request novel data by id
+
+        if (!response.ok) {
+          throw new Error('Novel not found');
+        }
+        const data = await response.json();
+        setNovel(data); // Update the novel state with the fetched data
+      } catch (err: any) {
+        setError(err.message); // Set error message if the fetch fails
+      } finally {
+        setLoading(false); // Stop loading once the request is finished
+      }
+    };
+
+    if (id) {
+      fetchNovel(); // Fetch novel when the id is available
+    }
+  }, [id]); // Re-fetch if the 'id' param changes
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <h1>Loading...</h1>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <Header />
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <h1>{error}</h1>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  if (!novel) {
+    return (
+      <>
+        <Header />
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <h1>Novel Not Found</h1>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
   const leftSidebarData = [
     {
       title: 'Genres',
@@ -84,18 +143,7 @@ const NovelPage: React.FC = () => {
     },
   ];
 
-  if (!novel) {
-    return (
-      <>
-        <Header />
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <h1>Novel Not Found</h1>
-        </div>
-
-        <Footer />
-      </>
-    );
-  }
+  const serverPath = 'http://localhost:8000';
 
   return (
     <>
@@ -104,7 +152,7 @@ const NovelPage: React.FC = () => {
         <Sidebar titles={leftSidebarData} />
 
         <Novel
-          imagePath={novel.imagePath}
+          imagePath={serverPath + novel.image_url}
           title={novel.title}
           date={novel.date}
           description={novel.description}
@@ -113,7 +161,7 @@ const NovelPage: React.FC = () => {
           type={novel.type}
           duration={novel.duration}
           author={novel.author}
-          downloadLink={novel.downloadLink}
+          downloadLink={serverPath + novel.torrent_url}
         />
         <Sidebar titles={rightSidebarData} />
       </div>

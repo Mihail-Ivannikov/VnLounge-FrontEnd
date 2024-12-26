@@ -26,6 +26,7 @@ const Novel: React.FC<NovelProps> = ({
   author,
   downloadLink,
 }) => {
+  console.log(downloadLink);
   return (
     <div className="novel">
       {/* Header Section */}

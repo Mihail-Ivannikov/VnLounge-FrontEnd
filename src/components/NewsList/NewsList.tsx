@@ -14,7 +14,7 @@ interface NewsListProps {
 
 const NewsList: React.FC<NewsListProps> = ({ newsItems }) => {
   return (
-    <div className="news-wrapper">
+    <div className="news-wrapper" id="News">
       <h2 className="news-block-title">News</h2>
       <div className="news-container">
         {newsItems.map((news, index) => (

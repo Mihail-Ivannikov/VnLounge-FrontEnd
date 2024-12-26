@@ -491,7 +491,7 @@ function Home() {
             gridTemplateColumns="repeat(4, 1fr)" // Customize the grid layout
             gap="15px" // Customize the gap between items
           />
-          <Catalog novels={sampleNovels} />
+          <Catalog />
         </div>
         <Sidebar titles={rightSidebarData} />
       </div>

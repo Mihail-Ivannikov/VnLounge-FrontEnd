@@ -2,6 +2,7 @@ import React from 'react';
 import './CatalogCard.css';
 
 interface CatalogCardProps {
+  id: number; // Add id to props
   imagePath: string;
   title: string;
   date: string;
@@ -14,6 +15,7 @@ interface CatalogCardProps {
 }
 
 const CatalogCard: React.FC<CatalogCardProps> = ({
+  id,
   imagePath,
   title,
   date,
@@ -71,8 +73,8 @@ const CatalogCard: React.FC<CatalogCardProps> = ({
             <strong>/</strong> {type}
           </span>
         </div>
-        <a href={`/novels/${title}`} className="read-button">
-          Read
+        <a href={`/novels/${id}`} className="read-button">
+          Read More
         </a>
       </div>
     </div>

@@ -21,11 +21,10 @@ const Catalog: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 8;
 
-  // Fetch data from API
   useEffect(() => {
     const fetchNovels = async () => {
       try {
-        const response = await fetch('/visual-novels'); // Proxy simplifies the base URL
+        const response = await fetch('/visual-novels');
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -76,11 +75,22 @@ const Catalog: React.FC = () => {
   return (
     <div className="catalog-container">
       {currentNovels.map((novel) => (
-        <CatalogCard key={novel.id} {...novel} />
+        <CatalogCard
+          key={novel.id}
+          id={novel.id} // Pass the id to CatalogCard
+          imagePath={novel.imagePath}
+          title={novel.title}
+          date={novel.date}
+          description={novel.description}
+          rating={novel.rating}
+          genre={novel.genre}
+          type={novel.type}
+          duration={novel.duration.toString()}
+          author={novel.author}
+        />
       ))}
 
       <div className="pagination">
-        {/* First Page Button */}
         <button
           className="catalog-button"
           onClick={() => handlePageChange(1)}
@@ -89,7 +99,6 @@ const Catalog: React.FC = () => {
           {'<<'}
         </button>
 
-        {/* Previous Button */}
         <button
           className="catalog-button"
           onClick={() => handlePageChange(currentPage - 1)}
@@ -98,7 +107,6 @@ const Catalog: React.FC = () => {
           {'<'}
         </button>
 
-        {/* Page Number Buttons */}
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
@@ -109,7 +117,6 @@ const Catalog: React.FC = () => {
           </button>
         ))}
 
-        {/* Next Button */}
         <button
           className="catalog-button"
           onClick={() => handlePageChange(currentPage + 1)}
@@ -118,7 +125,6 @@ const Catalog: React.FC = () => {
           {'>'}
         </button>
 
-        {/* Last Page Button */}
         <button
           className="catalog-button"
           onClick={() => handlePageChange(totalPages)}
