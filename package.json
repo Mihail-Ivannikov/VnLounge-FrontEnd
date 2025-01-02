@@ -13,6 +13,7 @@
     "@hcaptcha/react-hcaptcha": "^1.11.0",
     "@react-oauth/google": "^0.12.1",
     "axios": "^1.7.9",
+    "eslint-plugin-react": "^7.37.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1"

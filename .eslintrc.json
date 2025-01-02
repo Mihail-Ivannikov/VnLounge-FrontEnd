@@ -28,6 +28,10 @@
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
         "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/explicit-module-boundary-types": "off"
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "constructor-super": "off"
+    },
+    "globals": {
+        "structuredClone": "readonly"
     }
 }
