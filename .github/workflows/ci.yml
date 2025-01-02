@@ -35,7 +35,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Commit message check
-        uses: wagoid/commitlint-github-action@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          firstParent: false
+          fetch-depth: 0
+
+      - name: Commit message check
+        if: success() && github.event.before != '0000000000000000000000000000000000000000'
+        uses: wagoid/commitlint-github-action@v3
