@@ -36,7 +36,4 @@ jobs:
         run: npm run build
 
       - name: Commit message check
-        uses: amannn/action-semantic-pull-request@v2
-        with:
-          title: 'true'
-          body: 'true'
+        uses: wagoid/commitlint-github-action@v3
