@@ -87,11 +87,12 @@ const RegistrationForm: React.FC = () => {
       </label>
       <br />
 
-      <HCaptcha
-        sitekey='d87838da-e8c4-4b44-839a-ae6ad2847008'
-        onVerify={handleCaptchaVerify}
-        className='captcha'
-      />
+      <div className='captcha'>
+        <HCaptcha
+          sitekey='d87838da-e8c4-4b44-839a-ae6ad2847008'
+          onVerify={handleCaptchaVerify}
+        />
+      </div>
 
       {error && <p className='error-message'>{error}</p>}
       {success && <p className='success-message'>{success}</p>}

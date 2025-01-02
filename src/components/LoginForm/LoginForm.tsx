@@ -5,8 +5,12 @@ import {
   GoogleLogin,
   CredentialResponse,
 } from '@react-oauth/google';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import './LoginForm.css';
+
+interface ErrorResponse {
+  message: string;
+}
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -26,15 +30,16 @@ const LoginForm: React.FC = () => {
       if (response.status === 200 || response.status === 201) {
         setError('');
         setSuccess('Google login successful!');
-        navigate('/'); // Redirect to /Home page
+        navigate('/');
       } else {
         setError('Google login failed. Please try again.');
       }
     } catch (error) {
-      console.error('Google login error:', error.response || error);
+      const axiosError = error as AxiosError;
+      console.error('Google login error:', axiosError.response || error);
       setError(
-        error.response
-          ? error.response.data.message
+        axiosError.response && axiosError.response.data
+          ? (axiosError.response.data as ErrorResponse).message
           : 'Google login failed. Please try again.'
       );
     }
@@ -60,15 +65,16 @@ const LoginForm: React.FC = () => {
       if (response.status === 200 || response.status === 201) {
         setError('');
         setSuccess('Login successful!');
-        navigate('/'); // Redirect to /Home page
+        navigate('/');
       } else {
         setError('Login failed. Please try again.');
       }
     } catch (error) {
-      console.error('Login error:', error.response || error);
+      const axiosError = error as AxiosError;
+      console.error('Login error:', axiosError.response || error);
       setError(
-        error.response
-          ? error.response.data.message
+        axiosError.response && axiosError.response.data
+          ? (axiosError.response.data as ErrorResponse).message
           : 'Login failed. Please try again.'
       );
     }
