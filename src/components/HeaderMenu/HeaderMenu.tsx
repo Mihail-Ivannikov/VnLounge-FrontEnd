@@ -8,12 +8,12 @@ interface HeaderMenuProps {
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ items, id }) => {
   return (
-    <nav className="menu" id={id}>
+    <nav className='menu' id={id}>
       {items.map((item, index) => (
         <a
           href={`/${item === 'Home' ? '' : item}`}
           key={index}
-          className="menu-item"
+          className='menu-item'
         >
           {item.toUpperCase()}
         </a>

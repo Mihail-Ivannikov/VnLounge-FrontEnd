@@ -80,27 +80,27 @@ const Slider: React.FC<SliderData> = ({ title, items }) => {
   }, []);
 
   return (
-    <div className="slider-wrapper">
-      <h2 className="slider-title">{title}</h2>
-      <div className="slider" ref={sliderRef}>
-        <div className="slider-viewport" ref={viewportRef}>
+    <div className='slider-wrapper'>
+      <h2 className='slider-title'>{title}</h2>
+      <div className='slider' ref={sliderRef}>
+        <div className='slider-viewport' ref={viewportRef}>
           {items.map((item, index) => (
-            <div key={index} className="slider-item">
+            <div key={index} className='slider-item'>
               <a href={`/${item.title}`}>
                 <img
-                  className="slider-image"
+                  className='slider-image'
                   src={item.imgPath}
                   alt={item.title}
                 />
-                <h2 className="slider-label">{item.title}</h2>
+                <h2 className='slider-label'>{item.title}</h2>
               </a>
             </div>
           ))}
         </div>
-        <button className="slider-button next-button" onClick={handleNext}>
+        <button className='slider-button next-button' onClick={handleNext}>
           {'>'}
         </button>
-        <button className="slider-button prev-button" onClick={handlePrev}>
+        <button className='slider-button prev-button' onClick={handlePrev}>
           {'<'}
         </button>
       </div>

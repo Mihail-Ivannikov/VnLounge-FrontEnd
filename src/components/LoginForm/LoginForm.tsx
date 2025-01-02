@@ -75,42 +75,42 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <GoogleOAuthProvider clientId="678052677214-rj9e6clcn67rmboadknqag04t6ao52t7.apps.googleusercontent.com">
-      <form onSubmit={handleSubmit} className="login-form">
+    <GoogleOAuthProvider clientId='678052677214-rj9e6clcn67rmboadknqag04t6ao52t7.apps.googleusercontent.com'>
+      <form onSubmit={handleSubmit} className='login-form'>
         <h2>Login</h2>
 
-        <label className="form-label">
+        <label className='form-label'>
           Email:
           <input
-            type="email"
+            type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-input"
+            className='form-input'
             required
           />
         </label>
         <br />
 
-        <label className="form-label">
+        <label className='form-label'>
           Password:
           <input
-            type="password"
+            type='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-input"
+            className='form-input'
             required
           />
         </label>
         <br />
 
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
+        {error && <p className='error-message'>{error}</p>}
+        {success && <p className='success-message'>{success}</p>}
 
-        <button type="submit" className="submit-button">
+        <button type='submit' className='submit-button'>
           Login
         </button>
 
-        <div className="google-login">
+        <div className='google-login'>
           <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={handleGoogleFailure}
