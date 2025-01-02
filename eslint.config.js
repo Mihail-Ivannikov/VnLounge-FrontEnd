@@ -23,6 +23,10 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'constructor-super': 'off',
+    },
+    globals: {
+      structuredClone: 'readonly',
     },
   }
 );
