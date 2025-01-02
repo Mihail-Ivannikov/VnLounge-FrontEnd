@@ -6,34 +6,51 @@ import Novel from '../components/Novel/Novel';
 import Sidebar from '../components/Sidebar/Sidebar';
 import './NovelPage.css';
 
-const NovelPage: React.FC = () => {
-  const id = useParams().name; // Get the novel id from URL params
-  const [novel, setNovel] = useState<any>(null); // State to store novel data
-  const [error, setError] = useState<string | null>(null); // State to store error message
-  const [loading, setLoading] = useState<boolean>(true); // State to manage loading state
+interface Novel {
+  id: number;
+  image_url: string; // Updated to match API property
+  torrent_url: string; // Updated to match API property
+  title: string;
+  date: string;
+  description: string;
+  rating: number;
+  genre: string;
+  type: string;
+  duration: string;
+  author: string;
+}
 
-  // Fetch novel data based on the id from the URL
+const NovelPage: React.FC = () => {
+  const { name: id } = useParams<{ name: string }>();
+  const [novel, setNovel] = useState<Novel | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(() => {
     const fetchNovel = async () => {
       try {
-        const response = await fetch(`/visual-novels/${id}`); // Request novel data by id
+        const response = await fetch(`/visual-novels/${id}`);
 
         if (!response.ok) {
           throw new Error('Novel not found');
         }
         const data = await response.json();
-        setNovel(data); // Update the novel state with the fetched data
-      } catch (err: any) {
-        setError(err.message); // Set error message if the fetch fails
+        setNovel(data);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unexpected error occurred.');
+        }
       } finally {
-        setLoading(false); // Stop loading once the request is finished
+        setLoading(false);
       }
     };
 
     if (id) {
-      fetchNovel(); // Fetch novel when the id is available
+      fetchNovel();
     }
-  }, [id]); // Re-fetch if the 'id' param changes
+  }, [id]);
 
   if (loading) {
     return (
@@ -148,11 +165,11 @@ const NovelPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="novel-page-content">
+      <div className='novel-page-content'>
         <Sidebar titles={leftSidebarData} />
 
         <Novel
-          imagePath={serverPath + novel.image_url}
+          imagePath={serverPath + novel.image_url} // Updated property usage
           title={novel.title}
           date={novel.date}
           description={novel.description}
@@ -161,7 +178,7 @@ const NovelPage: React.FC = () => {
           type={novel.type}
           duration={novel.duration}
           author={novel.author}
-          downloadLink={serverPath + novel.torrent_url}
+          downloadLink={serverPath + novel.torrent_url} // Updated property usage
         />
         <Sidebar titles={rightSidebarData} />
       </div>

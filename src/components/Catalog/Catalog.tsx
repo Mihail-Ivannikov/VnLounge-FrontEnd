@@ -32,22 +32,39 @@ const Catalog: React.FC = () => {
 
         const data = await response.json();
         const serverPath = 'http://localhost:8000';
-        const mappedNovels = data.map((novel: any) => ({
-          id: novel.id,
-          imagePath: serverPath + novel.image_url,
-          title: novel.title,
-          date: novel.date,
-          description: novel.description,
-          rating: novel.rating,
-          genre: novel.genre,
-          type: novel.type,
-          duration: novel.duration,
-          author: novel.author,
-        }));
+        const mappedNovels = data.map(
+          (novel: {
+            id: number;
+            image_url: string;
+            title: string;
+            date: string;
+            description: string;
+            rating: number;
+            genre: string;
+            type: string;
+            duration: string;
+            author: string;
+          }) => ({
+            id: novel.id,
+            imagePath: serverPath + novel.image_url,
+            title: novel.title,
+            date: novel.date,
+            description: novel.description,
+            rating: novel.rating,
+            genre: novel.genre,
+            type: novel.type,
+            duration: novel.duration,
+            author: novel.author,
+          })
+        );
 
         setNovels(mappedNovels);
-      } catch (err: any) {
-        setError(err.message || 'An unexpected error occurred.');
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || 'An unexpected error occurred.');
+        } else {
+          setError('An unexpected error occurred.');
+        }
       }
     };
 
@@ -65,15 +82,15 @@ const Catalog: React.FC = () => {
   };
 
   if (error) {
-    return <div className="error-message">{error}</div>;
+    return <div className='error-message'>{error}</div>;
   }
 
   if (!novels.length && !error) {
-    return <div className="loading-message">Loading novels...</div>;
+    return <div className='loading-message'>Loading novels...</div>;
   }
 
   return (
-    <div className="catalog-container">
+    <div className='catalog-container'>
       {currentNovels.map((novel) => (
         <CatalogCard
           key={novel.id}
@@ -90,9 +107,9 @@ const Catalog: React.FC = () => {
         />
       ))}
 
-      <div className="pagination">
+      <div className='pagination'>
         <button
-          className="catalog-button"
+          className='catalog-button'
           onClick={() => handlePageChange(1)}
           disabled={currentPage === 1}
         >
@@ -100,7 +117,7 @@ const Catalog: React.FC = () => {
         </button>
 
         <button
-          className="catalog-button"
+          className='catalog-button'
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -118,7 +135,7 @@ const Catalog: React.FC = () => {
         ))}
 
         <button
-          className="catalog-button"
+          className='catalog-button'
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
@@ -126,7 +143,7 @@ const Catalog: React.FC = () => {
         </button>
 
         <button
-          className="catalog-button"
+          className='catalog-button'
           onClick={() => handlePageChange(totalPages)}
           disabled={currentPage === totalPages}
         >

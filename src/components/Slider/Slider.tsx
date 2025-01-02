@@ -11,9 +11,9 @@ interface SliderData {
   items: Item[];
 }
 
-const ITEM_WIDTH = 200; // Width of each slider-item in px
-const GAP_WIDTH = 10; // Gap between items in px
-const SCROLL_DURATION = 500; // Duration of the scroll animation in milliseconds
+const ITEM_WIDTH = 200;
+const GAP_WIDTH = 10;
+const SCROLL_DURATION = 500;
 
 const Slider: React.FC<SliderData> = ({ title, items }) => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -29,10 +29,14 @@ const Slider: React.FC<SliderData> = ({ title, items }) => {
         const timeFraction = (time - startTime) / SCROLL_DURATION;
         if (timeFraction < 1) {
           const scrollValue = startScrollLeft + distance * timeFraction;
-          viewportRef.current.scrollLeft = scrollValue;
+          if (viewportRef.current) {
+            viewportRef.current.scrollLeft = scrollValue;
+          }
           requestAnimationFrame(animateScroll);
         } else {
-          viewportRef.current.scrollLeft = targetScrollLeft;
+          if (viewportRef.current) {
+            viewportRef.current.scrollLeft = targetScrollLeft;
+          }
         }
       };
 
@@ -64,43 +68,43 @@ const Slider: React.FC<SliderData> = ({ title, items }) => {
 
   const handleResize = () => {
     if (sliderRef.current && viewportRef.current) {
-      const sliderWidth = sliderRef.current.offsetWidth; // Reference the slider width
-      const maxItems = Math.floor(sliderWidth / (ITEM_WIDTH + GAP_WIDTH)); // Calculate max items fitting in the slider
-      const adjustedWidth = maxItems * (ITEM_WIDTH + GAP_WIDTH) - GAP_WIDTH; // Compute viewport width
+      const sliderWidth = sliderRef.current.offsetWidth;
+      const maxItems = Math.floor(sliderWidth / (ITEM_WIDTH + GAP_WIDTH));
+      const adjustedWidth = maxItems * (ITEM_WIDTH + GAP_WIDTH) - GAP_WIDTH;
 
-      viewportRef.current.style.width = `${adjustedWidth}px`; // Set the calculated width
+      viewportRef.current.style.width = `${adjustedWidth}px`;
     }
   };
 
   useEffect(() => {
-    handleResize(); // Initial calculation
+    handleResize();
 
-    window.addEventListener('resize', handleResize); // Recalculate on window resize
+    window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <div className="slider-wrapper">
-      <h2 className="slider-title">{title}</h2>
-      <div className="slider" ref={sliderRef}>
-        <div className="slider-viewport" ref={viewportRef}>
+    <div className='slider-wrapper'>
+      <h2 className='slider-title'>{title}</h2>
+      <div className='slider' ref={sliderRef}>
+        <div className='slider-viewport' ref={viewportRef}>
           {items.map((item, index) => (
-            <div key={index} className="slider-item">
+            <div key={index} className='slider-item'>
               <a href={`/${item.title}`}>
                 <img
-                  className="slider-image"
+                  className='slider-image'
                   src={item.imgPath}
                   alt={item.title}
                 />
-                <h2 className="slider-label">{item.title}</h2>
+                <h2 className='slider-label'>{item.title}</h2>
               </a>
             </div>
           ))}
         </div>
-        <button className="slider-button next-button" onClick={handleNext}>
+        <button className='slider-button next-button' onClick={handleNext}>
           {'>'}
         </button>
-        <button className="slider-button prev-button" onClick={handlePrev}>
+        <button className='slider-button prev-button' onClick={handlePrev}>
           {'<'}
         </button>
       </div>

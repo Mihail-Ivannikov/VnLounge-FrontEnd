@@ -8,9 +8,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ name, imagePath }) => {
   return (
-    <div className="card">
-      <img src={imagePath} alt={name} className="card-image" />
-      <div className="card-content">
+    <div className='card'>
+      <img src={imagePath} alt={name} className='card-image' />
+      <div className='card-content'>
         <h3>{name}</h3>
       </div>
     </div>

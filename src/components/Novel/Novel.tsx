@@ -28,12 +28,12 @@ const Novel: React.FC<NovelProps> = ({
 }) => {
   console.log(downloadLink);
   return (
-    <div className="novel">
+    <div className='novel'>
       {/* Header Section */}
-      <div className="novel-header">
-        <img src={imagePath} alt={title} className="novel-image" />
+      <div className='novel-header'>
+        <img src={imagePath} alt={title} className='novel-image' />
 
-        <div className="novel-text">
+        <div className='novel-text'>
           <h1>{title}</h1>
           <p>
             <strong>Date:</strong> {date}
@@ -57,13 +57,13 @@ const Novel: React.FC<NovelProps> = ({
       </div>
 
       {/* Description Section */}
-      <p className="novel-description">
+      <p className='novel-description'>
         <strong>Description:</strong> {description}
       </p>
 
       {/* Download Button */}
-      <div className="novel-download-section">
-        <a href={downloadLink} download className="novel-download-button">
+      <div className='novel-download-section'>
+        <a href={downloadLink} download className='novel-download-button'>
           Download Novel
         </a>
       </div>

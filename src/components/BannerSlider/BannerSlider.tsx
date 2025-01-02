@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+/* eslint-disable react/prop-types */
+
+import React, { useState, useEffect } from 'react';
 import './BannerSlider.css'; // Add custom styles here
 
 type SliderProps = {
@@ -40,49 +42,49 @@ function BannerSlider({ props }: SliderProps) {
   }, [currentIndex]);
 
   return (
-    <div className="banner-slider">
+    <div className='banner-slider'>
       <div
-        className="banner-slider-viewport"
+        className='banner-slider-viewport'
         onScroll={() => setHideDescription(true)}
       >
         {props.map((item, index) => (
           <div
             key={index}
-            className="banner-slider-item"
+            className='banner-slider-item'
             onClick={() => setHideDescription((h) => !h)}
           >
-            <div className="banner-slider-header">
+            <div className='banner-slider-header'>
               <h2>{item.name}</h2>
             </div>
             <img
-              className="banner-slider-big-image"
+              className='banner-slider-big-image'
               src={item.image1}
               alt={`${item.name} Image 1`}
             />
             <img
-              className="banner-slider-small-image banner-upper-image"
+              className='banner-slider-small-image banner-upper-image'
               src={item.image2}
               alt={`${item.name} Image 2`}
             />
             <img
-              className="banner-slider-small-image banner-lower-image"
+              className='banner-slider-small-image banner-lower-image'
               src={item.image3}
               alt={`${item.name} Image 3`}
             />
 
             <div
-              className="banner-slider-description"
+              className='banner-slider-description'
               style={{ display: `${hideDescription ? 'none' : 'block'}` }}
             >
-              <p className="banner-slider-text">{item.description}</p>
-              <a className="banner-slider-button" href={`/${item.name}`}>
+              <p className='banner-slider-text'>{item.description}</p>
+              <a className='banner-slider-button' href={`/${item.name}`}>
                 Watch!
               </a>
             </div>
           </div>
         ))}
       </div>
-      <div className="banner-slider-dots">
+      <div className='banner-slider-dots'>
         {props.map((_, index) => (
           <span
             key={index}

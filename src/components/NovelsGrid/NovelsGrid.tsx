@@ -15,10 +15,10 @@ const NovelsGrid = <T,>({
   gap = '20px', // Default gap
 }: NovelsGridProps<T>) => {
   return (
-    <section className="novels-grid-wrapper">
-      <h2 className="novels-grid-title">Top Rated Novels</h2>
+    <section className='novels-grid-wrapper'>
+      <h2 className='novels-grid-title'>Top Rated Novels</h2>
       <div
-        className="novels-grid"
+        className='novels-grid'
         style={{
           gridTemplateColumns: gridTemplateColumns,
           gap: gap,

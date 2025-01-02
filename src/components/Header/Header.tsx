@@ -18,26 +18,26 @@ const Header: React.FC = () => {
   return (
     <header>
       {/* Upper Header */}
-      <div className="upper-header">
+      <div className='upper-header'>
         <Logo />
-        <div className="upper-header-dark-part"></div>
+        <div className='upper-header-dark-part'></div>
 
-        <HeaderMenu items={upperMenuItems} id="upper-menu" />
-        <div className="auth-buttons">
-          <a className="register-button auth-button" href="/Register">
+        <HeaderMenu items={upperMenuItems} id='upper-menu' />
+        <div className='auth-buttons'>
+          <a className='register-button auth-button' href='/Register'>
             Register
           </a>
-          <a className="login-button auth-button" href="/LogIn">
+          <a className='login-button auth-button' href='/LogIn'>
             Log In
           </a>
         </div>
       </div>
 
       {/* Lower Header */}
-      <div className="lower-header">
+      <div className='lower-header'>
         {/*<SearchBar />*/}
         <SearchBar />
-        <HeaderMenu items={lowerMenuItems} id="lower-menu" />
+        <HeaderMenu items={lowerMenuItems} id='lower-menu' />
       </div>
     </header>
   );

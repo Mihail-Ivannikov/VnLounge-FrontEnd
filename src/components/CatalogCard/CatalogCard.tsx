@@ -27,12 +27,12 @@ const CatalogCard: React.FC<CatalogCardProps> = ({
   author,
 }) => {
   return (
-    <div className="catalog-card">
+    <div className='catalog-card'>
       {/* Image and Text Section */}
-      <div className="catalog-header">
-        <img src={imagePath} alt={title} className="catalog-image" />
+      <div className='catalog-header'>
+        <img src={imagePath} alt={title} className='catalog-image' />
 
-        <div className="catalog-text">
+        <div className='catalog-text'>
           <h4>{title}</h4>
           <p>
             <strong>Date:</strong> {date}
@@ -61,8 +61,8 @@ const CatalogCard: React.FC<CatalogCardProps> = ({
       </p>
 
       {/* Tags and Read Button Section */}
-      <div className="tags-and-button">
-        <div className="tags">
+      <div className='tags-and-button'>
+        <div className='tags'>
           <span>
             <strong></strong> {genre}
           </span>
@@ -73,7 +73,7 @@ const CatalogCard: React.FC<CatalogCardProps> = ({
             <strong>/</strong> {type}
           </span>
         </div>
-        <a href={`/novels/${id}`} className="read-button">
+        <a href={`/novels/${id}`} className='read-button'>
           Read More
         </a>
       </div>
