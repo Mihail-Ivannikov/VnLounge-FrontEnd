@@ -6,9 +6,22 @@ import Novel from '../components/Novel/Novel';
 import Sidebar from '../components/Sidebar/Sidebar';
 import './NovelPage.css';
 
+interface Novel {
+  id: number;
+  imagePath: string;
+  title: string;
+  date: string;
+  description: string;
+  rating: number;
+  genre: string;
+  type: string;
+  duration: string;
+  author: string;
+}
+
 const NovelPage: React.FC = () => {
-  const id = useParams().name; // Get the novel id from URL params
-  const [novel, setNovel] = useState<any>(null); // State to store novel data
+  const { name: id } = useParams<{ name: string }>(); // Get the novel id from URL params
+  const [novel, setNovel] = useState<Novel | null>(null); // State to store novel data
   const [error, setError] = useState<string | null>(null); // State to store error message
   const [loading, setLoading] = useState<boolean>(true); // State to manage loading state
 
@@ -23,8 +36,12 @@ const NovelPage: React.FC = () => {
         }
         const data = await response.json();
         setNovel(data); // Update the novel state with the fetched data
-      } catch (err: any) {
-        setError(err.message); // Set error message if the fetch fails
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message); // Set error message if the fetch fails
+        } else {
+          setError('An unexpected error occurred.');
+        }
       } finally {
         setLoading(false); // Stop loading once the request is finished
       }
@@ -148,7 +165,7 @@ const NovelPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="novel-page-content">
+      <div className='novel-page-content'>
         <Sidebar titles={leftSidebarData} />
 
         <Novel
